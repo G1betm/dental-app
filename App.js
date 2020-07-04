@@ -119,10 +119,10 @@ export default function App() {
             width: 0,
             height: 3,
         },
-        shadowOpacity: 0.27,
-        shadowRadius: 4.65,
+        shadowOpacity: 0.7,
+        shadowRadius: 3,
         
-        elevation: 6,
+        elevation: 7,
     }}>
         <Entypo name="plus" size={32} color="white" />
     </PlusButton>
