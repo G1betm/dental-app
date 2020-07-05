@@ -5,12 +5,12 @@ import styled from 'styled-components/native' ;
 
 
 
-export default function Group({ user, diagnosis, active, time }) {
-    return (
+export default function Group({ user, diagnosis, active, time, navigate }) {
+    return (        
         
         
-            
-    <GroupItem>
+
+    <GroupItem onPress={navigate.bind(this, 'Patient')}>
         <Avatar
          source={{
          uri: user.avatar
@@ -22,8 +22,8 @@ export default function Group({ user, diagnosis, active, time }) {
         </View>
         <GroupDate active={active}>{ time }</GroupDate>
     </GroupItem>
-            
-    
+
+
     );
     
 };
@@ -41,7 +41,7 @@ const GroupItem = styled.TouchableOpacity`
     flex-direction: row;
     align-items: center;
     border-bottom-width: 1px;
-    border-bottom-color: #F3F3F3;
+    border-bottom-color: #ebebeb;
     
 `;
 const Avatar = styled.Image`
