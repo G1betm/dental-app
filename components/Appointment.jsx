@@ -3,14 +3,16 @@ import React from 'react';
 import { StyleSheet, Text, View, SectionList } from 'react-native';
 import styled from 'styled-components/native' ;
 
+import GrayText from './GrayText';
+import Badge from './Badge';
 
 
-export default function Group({ user, diagnosis, active, time, navigate }) {
-    return (        
-        
-        
 
-    <GroupItem onPress={navigate.bind(this, 'Patient')}>
+
+export default function Appointment({  navigate, item }) {
+    const {user, diagnosis, active, time} = item;
+    return (         
+    <GroupItem onPress={navigate.bind(this, 'Patient', item )}>
         <Avatar
          source={{
          uri: user.avatar
@@ -20,7 +22,7 @@ export default function Group({ user, diagnosis, active, time, navigate }) {
             <FullName>{ user.fullname }</FullName>
             <GrayText>{ diagnosis }</GrayText>
         </View>
-        <GroupDate active={active}>{ time }</GroupDate>
+        <Badge active={active}>{ time }</Badge>
     </GroupItem>
 
 
@@ -28,7 +30,7 @@ export default function Group({ user, diagnosis, active, time, navigate }) {
     
 };
 
-Group.defaultProps = {
+Appointment.defaultProps = {
     title: 'Untitled',
     items: []
 };
@@ -54,22 +56,5 @@ const FullName = styled.Text`
     font-weight: 600;
     font-size: 16px;
 `;
-const GrayText = styled.Text`
-    font-size: 16px;
-    color: #8B979F;
 
-`;
-const GroupDate = styled.Text`
-    background: ${props => props.active ? '#2A86FF;' : '#E9F5FF'};
-    color: ${props => props.active ? '#fff;' : '#4294ff'};
-    border-radius: 18px;
-    padding: 7px 17px;
-    font-size: 16px;
-    align-items: center;
-    justify-content: center;
-    margin-left: 20px;
-    font-weight: bold;
-
-
-`;
 

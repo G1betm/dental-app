@@ -14,15 +14,19 @@ const DATA = [
             diagnosis: 'тут какой-то текст',
             active: true,
             user: {
+                phone: '+998 90 567 12 43',
                 fullname: 'Алишер Ахмедов',
                 avatar: 'https://sun9-21.userapi.com/c857532/v857532576/125124/weqq4JUW9P0.jpg?ava=1',
+                
             }
+
         },
 
         {
             time: '16:40',
             diagnosis: 'тут какой-то текст 2',
             user: {
+                phone: '+998 90 643 32 54',
                 fullname: 'Мухаммадяхё Аскаров ',
                 avatar: 'https://sun9-7.userapi.com/c853528/v853528508/122d10/q7nQ4ruIRDg.jpg?ava=1',
             }
@@ -32,6 +36,7 @@ const DATA = [
           diagnosis: 'тут какой-то текст',
           
           user: {
+              phone: '+998 90 567 12 43',
               fullname: 'Алишер Ахмедов',
               avatar: 'https://sun9-21.userapi.com/c857532/v857532576/125124/weqq4JUW9P0.jpg?ava=1',
           }
@@ -41,6 +46,7 @@ const DATA = [
           time: '16:40',
           diagnosis: 'тут какой-то текст 2',
           user: {
+              phone: '+998 90 643 32 54',
               fullname: 'Мухаммадяхё Аскаров ',
               avatar: 'https://sun9-7.userapi.com/c853528/v853528508/122d10/q7nQ4ruIRDg.jpg?ava=1',
           }
@@ -55,6 +61,7 @@ const DATA = [
             time: '15:30',
             diagnosis: 'тут какой-то текст 3',
             user: {
+                phone: '+998 90 783 21 99',
                 fullname: 'Артур Файзуллин',
                 avatar: 'https://sun9-15.userapi.com/c840532/v840532687/752e4/ZjsSwtv6fFs.jpg?ava=1',
             }
@@ -64,6 +71,7 @@ const DATA = [
           diagnosis: 'тут какой-то текст',
           
           user: {
+              phone: '+998 90 567 12 43',
               fullname: 'Алишер Ахмедов',
               avatar: 'https://sun9-21.userapi.com/c857532/v857532576/125124/weqq4JUW9P0.jpg?ava=1',
           }
@@ -73,6 +81,7 @@ const DATA = [
           time: '16:40',
           diagnosis: 'тут какой-то текст 2',
           user: {
+              phone: '+998 90 643 32 54',
               fullname: 'Мухаммадяхё Аскаров ',
               avatar: 'https://sun9-7.userapi.com/c853528/v853528508/122d10/q7nQ4ruIRDg.jpg?ava=1',
           }
@@ -82,6 +91,7 @@ const DATA = [
         diagnosis: 'тут какой-то текст',
         
         user: {
+            phone: '+998 90 567 12 43',
             fullname: 'Алишер Ахмедов',
             avatar: 'https://sun9-21.userapi.com/c857532/v857532576/125124/weqq4JUW9P0.jpg?ava=1',
         }
@@ -91,6 +101,7 @@ const DATA = [
         time: '16:40',
         diagnosis: 'тут какой-то текст 2',
         user: {
+            phone: '+998 90 643 32 54',
             fullname: 'Мухаммадяхё Аскаров ',
             avatar: 'https://sun9-7.userapi.com/c853528/v853528508/122d10/q7nQ4ruIRDg.jpg?ava=1',
         }
@@ -99,33 +110,30 @@ const DATA = [
     }, 
   ];
 
-const HomeScreen = ({navigation}) => (
-    
-    <Container>
-                
+const HomeScreen = ({navigation}) => (  
+    <Container>               
         <SectionList
             sections={DATA}
             keyExtractor={(item, index) => index}
-            renderItem={({ item }) => <Appointment navigate={navigation.navigate} { ...item } /> } 
+            renderItem={({ item }) => <Appointment navigate={navigation.navigate} item={item} /> } 
             renderSectionHeader={({ section: { title } }) => (
-        <SectionTitle>{title}</SectionTitle>
-    )}
-    />
-    <PlusButton style={{
-        shadowColor: "#2A86FF",
-        shadowOffset: {
-            width: 0,
-            height: 3,
-        },
-        shadowOpacity: 0.7,
-        shadowRadius: 3,
-        
-        elevation: 7,
-    }}>
-        <Entypo name="plus" size={32} color="white" />
-    </PlusButton>
-</Container>             
+                <SectionTitle>{title}</SectionTitle>
+            )}
+        />
+        <PlusButton style={{
+            shadowColor: "#2A86FF",
+            shadowOffset: {
+                width: 0,
+                height: 3,
+            },
+            shadowOpacity: 0.7,
+            shadowRadius: 3,
             
+            elevation: 7,
+        }}>
+            <Entypo name="plus" size={32} color="white" />
+        </PlusButton>
+    </Container>                         
 );
 
 
@@ -143,7 +151,7 @@ HomeScreen.navigationOptions = {
 
 const Container = styled.View`
     flex: 1;
-    
+    background: #fff;
     
 `;
 
@@ -158,8 +166,6 @@ const PlusButton = styled.TouchableOpacity`
     height: 64px;
     right: 25px;
     bottom: 25px;
-    
-    
 `;
 
 export default HomeScreen;
